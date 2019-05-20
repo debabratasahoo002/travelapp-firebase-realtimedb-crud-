@@ -1,0 +1,6 @@
+<div class="card float-left" *ngFor="let item of items | async" style="width: 20rem;height: 22rem;">
+  <img [src]="item.imageUrl" class="card-img-top rounded" style="height: 15rem" alt="...">
+  <h5 class="card-title">{{item.name }}</h5>
+  <button type="button" (click)="removePlace()" class="btn btn-danger btn-sm">Remove {{item.imageUrl}}</button>
+</div>
+
