@@ -1,3 +1,4 @@
+import { UpdatePlaceComponent } from './components/update-place/update-place.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { HomeComponent } from './pages/home.component';
 import { AddPlaceComponent } from './components/add-place/add-place.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path:'add', component: AddPlaceComponent },
   { path:'home', component: HomeComponent},
+  { path:'update', component: UpdatePlaceComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

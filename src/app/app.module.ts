@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { UpdatePlaceComponent } from './components/update-place/update-place.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     CardsComponent,
     AddPlaceComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UpdatePlaceComponent
   ],
   imports: [
     BrowserModule,

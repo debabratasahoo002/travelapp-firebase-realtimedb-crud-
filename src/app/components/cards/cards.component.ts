@@ -12,24 +12,17 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./cards.component.sass']
 })
 export class CardsComponent implements OnInit, OnDestroy {
-  items: Observable<any[]>;
-  itemsRef: AngularFireList<any>;
+
+  items = this.placeService.items;
   
   arr:object[];
-  constructor( db: AngularFireDatabase ) {     
-    this.itemsRef = db.list('place');
-    this.items = this.itemsRef.valueChanges();
-    //initailizing snapshot objects for extracting keys
-    this.items = this.itemsRef.snapshotChanges().pipe(
-      map(changes => 
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      )
-    );
+  constructor( private placeService:PlaceService ) {
   }
- 
   removePlace(key){
-    this.itemsRef.remove(key.key);
-    
+    this.placeService.itemsRef.remove(key.key); 
+  }
+  updatePlace(key, place: Place) {
+    this.placeService.itemsRef.update(key.key, place);
   }
 
   ngOnInit() {
