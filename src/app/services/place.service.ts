@@ -1,3 +1,4 @@
+import { CardsComponent } from './../components/cards/cards.component';
 import { Place } from './../models/place.model';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Subscription, Observable } from 'rxjs';
@@ -14,7 +15,7 @@ export class PlaceService {
   
   items: Observable<any[]>;
   itemsRef: AngularFireList<any>;
-  
+  key;
   constructor(private db:AngularFireDatabase , private router: Router){
     this.itemsRef = db.list('place');
     this.items = this.itemsRef.valueChanges();
@@ -31,5 +32,15 @@ export class PlaceService {
     this.db.list('place').push(model);
     this.router.navigate(['/home']);
   }
+  
+  update(key,model:Place){
+    this.itemsRef.update(key, model);
+  }
+  getKey(key){
+    this.key = key;
+  }
+
+
+
 
 }
