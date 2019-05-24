@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +30,7 @@ import { UpdatePlaceComponent } from './components/update-place/update-place.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ModalModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule    
   ],

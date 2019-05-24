@@ -1,12 +1,8 @@
-import { Place } from './../../models/place.model';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { PlaceService } from './../../services/place.service';
 
-import { Component, OnInit, EventEmitter, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Component, OnInit, TemplateRef, OnDestroy } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-cards',
@@ -14,10 +10,10 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
   styleUrls: ['./cards.component.sass']
 })
 export class CardsComponent implements OnInit, OnDestroy {
-
+  modalRef: BsModalRef;
   items = this.placeService.items;
   key;
-  constructor( private placeService:PlaceService ,private router:Router) {
+  constructor( private placeService:PlaceService ,private router:Router, private modalService: BsModalService) {
   }
   removePlace(key){
     this.placeService.itemsRef.remove(key.key); 
@@ -25,6 +21,10 @@ export class CardsComponent implements OnInit, OnDestroy {
   updatePlace(key){
     this.router.navigate(['/update']);
     this.placeService.getKey(key.key)
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
   
 

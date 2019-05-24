@@ -39,8 +39,4 @@ export class PlaceService {
   getKey(key){
     this.key = key;
   }
-
-
-
-
 }
