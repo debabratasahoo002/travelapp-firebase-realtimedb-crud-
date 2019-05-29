@@ -13,12 +13,14 @@ import { Router } from '@angular/router';
 })
 export class AddPlaceComponent implements OnInit, OnDestroy {
 
-  model = new Place("","");  
+  model = new Place("",""); 
+  modalRef = this.placeService.modalRef; 
 
   constructor( private placeService:PlaceService ) { }
 
   onSubmit(){
     this.placeService.addPlaces(this.model);
+    this.modalRef.hide();
   }
 
   ngOnInit() {

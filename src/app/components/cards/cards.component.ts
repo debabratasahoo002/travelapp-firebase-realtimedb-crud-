@@ -1,6 +1,6 @@
 import { PlaceService } from './../../services/place.service';
 
-import { Component, OnInit, TemplateRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, TemplateRef, OnDestroy, Output } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 
@@ -10,21 +10,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./cards.component.sass']
 })
 export class CardsComponent implements OnInit, OnDestroy {
-  modalRef: BsModalRef;
+  
+  modalRef = this.placeService.modalRef;
   items = this.placeService.items;
   key;
-  constructor( private placeService:PlaceService ,private router:Router, private modalService: BsModalService) {
+  constructor( private placeService:PlaceService ,private router:Router) {
   }
   removePlace(key){
     this.placeService.itemsRef.remove(key.key); 
   }
   updatePlace(key){
-    this.router.navigate(['/update']);
-    this.placeService.getKey(key.key)
+    this.placeService.getKey(key.key);
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  updateModal(key,template: TemplateRef<any>){
+    console.log(key.key+" from update modal");
+    this.placeService.getKey(key.key);
+    this.modalRef = this.placeService.modalService.show(template);
   }
   
 

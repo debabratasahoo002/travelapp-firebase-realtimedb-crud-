@@ -19,8 +19,6 @@ export class UpdatePlaceComponent implements OnInit {
   onSubmit(){
     this.model.imageUrl="../../../assets/images/"+this.model.imageUrl+".jpg";
     this.placeService.update(this.key,this.model);
-    this.router.navigate(['/home']);
-
   }
   
   ngOnInit() {

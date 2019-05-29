@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { PlaceService } from './../../services/place.service';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  modalRef = this.placeService.modalRef;
+  constructor(private placeService:PlaceService) { }
 
+  addModal(template: TemplateRef<any>) {
+    this.modalRef =this.placeService.modalService.show(template);
+  }
   ngOnInit() {
   }
 

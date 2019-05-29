@@ -3,9 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-page-not-found',
   template: `
-    <p>
-      page-not-found works!
-    </p>
+    <h1>Page not found! 404error</h1>
   `,
   styleUrls: ['./page-not-found.component.sass']
 })
