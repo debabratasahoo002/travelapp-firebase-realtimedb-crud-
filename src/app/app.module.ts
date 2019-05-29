@@ -15,6 +15,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { UpdatePlaceComponent } from './components/update-place/update-place.component';
+import { PlaceDetailComponent } from './components/place-detail/place-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UpdatePlaceComponent } from './components/update-place/update-place.com
     AddPlaceComponent,
     HomeComponent,
     PageNotFoundComponent,
-    UpdatePlaceComponent
+    UpdatePlaceComponent,
+    PlaceDetailComponent
   ],
   imports: [
     BrowserModule,
