@@ -14,6 +14,11 @@ export class HeaderComponent implements OnInit {
   addModal(template: TemplateRef<any>) {
     this.modalRef =this.placeService.modalService.show(template);
   }
+  closeModal($event){
+    if($event!=true){
+      this.modalRef.hide();
+    }
+  }
   ngOnInit() {
   }
 

@@ -1,6 +1,6 @@
 import { PlaceService } from './../../services/place.service';
 import { Place } from './../../models/place.model';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -13,14 +13,16 @@ import { Router } from '@angular/router';
 })
 export class AddPlaceComponent implements OnInit, OnDestroy {
 
+  @Output() modalCloseEvent = new EventEmitter();
   model = new Place("",""); 
+  isModalClose=false;
   modalRef = this.placeService.modalRef; 
 
   constructor( private placeService:PlaceService ) { }
 
   onSubmit(){
     this.placeService.addPlaces(this.model);
-    this.modalRef.hide();
+    this.modalCloseEvent.emit(this.isModalClose);
   }
 
   ngOnInit() {

@@ -24,12 +24,16 @@ export class CardsComponent implements OnInit, OnDestroy {
   }
 
   updateModal(key,template: TemplateRef<any>){
-    console.log(key.key+" from update modal");
+    this.placeService.getModel(key.name,key.imageUrl);
     this.placeService.getKey(key.key);
     this.modalRef = this.placeService.modalService.show(template);
   }
-  
-
+  closeModal($event){
+    if($event!=true){
+      this.modalRef.hide();
+    }
+  }
+ 
   ngOnInit() {
   }
   ngOnDestroy(){

@@ -13,14 +13,14 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 
 export class PlaceService {
-  
+  model= new Place("","");
   items: Observable<any[]>;
   itemsRef: AngularFireList<any>;
   key;
   modalRef: BsModalRef;
   constructor(private db:AngularFireDatabase , private router: Router, public modalService: BsModalService){
     this.itemsRef = db.list('place');
-    this.items = this.itemsRef.valueChanges();
+    //this.items = this.itemsRef.valueChanges();
     //initailizing snapshot objects for extracting keys
     this.items = this.itemsRef.snapshotChanges().pipe(
       map(changes => 
@@ -41,4 +41,10 @@ export class PlaceService {
     this.key = key;
     console.log(this.key)
   }
+  getModel(name,imgurl){
+    this.model.name=name;
+    this.model.imageUrl=imgurl;    
+  }
+
+
 }

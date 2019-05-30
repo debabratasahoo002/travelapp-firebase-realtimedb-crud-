@@ -1,6 +1,6 @@
 import { PlaceService } from './../../services/place.service';
 import { Place } from './../../models/place.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,16 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./update-place.component.sass']
 })
 export class UpdatePlaceComponent implements OnInit {
-
+  @Output() modalCloseEvent = new EventEmitter();
   items = this.placeService.items;
   key = this.placeService.key;
+  isModalClose=false;
   constructor(private placeService: PlaceService, private router:Router) { }
 
-  model= new Place("","");
+  model= this.placeService.model;
 
   onSubmit(){
     this.model.imageUrl="../../../assets/images/"+this.model.imageUrl+".jpg";
     this.placeService.update(this.key,this.model);
+    this.modalCloseEvent.emit(this.isModalClose);
   }
   
   ngOnInit() {
