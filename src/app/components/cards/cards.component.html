@@ -1,11 +1,16 @@
 
-<div class="card float-left border-warning" *ngFor="let item of items | async" style="width: 20rem;height: 22rem;">
-  <img [src]="item.imageUrl" class="card-img-top rounded" style="height: 15rem" alt="...">
-  <h5 class="card-title"><a [routerLink]="['/place', item.name]">{{item.name }}</a></h5>
+<div class="card float-left border-warning" *ngFor="let item of items | async" style="width: 21rem;height: 22rem;">
+  <img [src]="item.imageUrl" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><a [routerLink]="['/place', item.key]">{{item.name}}</a></h5>
+    <p class="card-text text-truncate">{{item.description}}</p>
+  </div>
+  
   <button type="button" (click)="removePlace(item)" class="close btn-close" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
   <button type="button" (click)="updateModal(item,updatePlace)" class="btn btn-outline-success btn-sm btn-edit">Edit</button>
+  
 </div>
  
 

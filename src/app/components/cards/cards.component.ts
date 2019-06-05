@@ -20,12 +20,12 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.placeService.itemsRef.remove(key.key); 
   }
   updatePlace(key){
-    this.placeService.getKey(key.key);
+    this.placeService.setKey(key.key);
   }
 
   updateModal(key,template: TemplateRef<any>){
-    this.placeService.getModel(key.name,key.imageUrl);
-    this.placeService.getKey(key.key);
+    this.placeService.setModel(key.name,key.imageUrl,key.description);
+    this.placeService.setKey(key.key);
     this.modalRef = this.placeService.modalService.show(template);
   }
   closeModal($event){
@@ -33,6 +33,8 @@ export class CardsComponent implements OnInit, OnDestroy {
       this.modalRef.hide();
     }
   }
+
+  
  
   ngOnInit() {
   }

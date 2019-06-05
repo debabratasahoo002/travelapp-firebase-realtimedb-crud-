@@ -1,17 +1,29 @@
 .card
-    margin: 1rem
+    margin: 0.5rem
     position: relative
     background-image: url("../../../assets/images/card-background.jpg")
     background-size: 100%
+    border-width: 2px
+    border-radius: 10px
 
-.card-title
-    padding-left: 20px
+.card-body
+    padding-top: 10px
+    padding-bottom:  5px
+
+.card-img-top
+    height: 14rem
+    border-radius: 10px
+    border-bottom-left-radius: 0px
+    border-bottom-right-radius: 0px
+a
+    color: #002e86
+    &:hover
+        text-decoration: none
+        color: #fff900
 
 .btn-close
     position: absolute
-    right: 0px
-    padding: 10px
-    height: 2rem
+    right: 7px
     opacity: .5
     &:hover
         opacity: 1.0
@@ -22,4 +34,6 @@
     width: 20%
     height: 2rem
     float: left
+    border-top-left-radius: 10px
+
 

@@ -13,7 +13,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 
 export class PlaceService {
-  model= new Place("","");
+  model= new Place("","","");
   items: Observable<any[]>;
   itemsRef: AngularFireList<any>;
   key;
@@ -33,18 +33,25 @@ export class PlaceService {
     model.imageUrl = "../../../assets/images/"+model.imageUrl+".jpg";
     this.db.list('place').push(model);
   }
+  getPlace(key){
+    return this.db.list('/place', ref => ref.equalTo(key));
+  }
   
   update(key,model:Place){
     this.itemsRef.update(key, model);
   }
-  getKey(key){
+  setKey(key){
     this.key = key;
-    console.log(this.key)
   }
-  getModel(name,imgurl){
+  setModel(name,imgurl,desc){
     this.model.name=name;
-    this.model.imageUrl=imgurl;    
+    this.model.imageUrl=imgurl; 
+    this.model.description=desc;   
   }
 
+  
+  getPlace2(key){
+    return this.db.list("/place/"+key);
+  }
 
 }

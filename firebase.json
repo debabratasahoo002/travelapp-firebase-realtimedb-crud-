@@ -3,7 +3,7 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "dist",
+    "public": "dist/travel-app3",
     "ignore": [
       "firebase.json",
       "**/.*",

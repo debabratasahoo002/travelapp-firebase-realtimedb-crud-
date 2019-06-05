@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class AddPlaceComponent implements OnInit, OnDestroy {
 
   @Output() modalCloseEvent = new EventEmitter();
-  model = new Place("",""); 
+  model = new Place("","",""); 
   isModalClose=false;
   modalRef = this.placeService.modalRef; 
 
