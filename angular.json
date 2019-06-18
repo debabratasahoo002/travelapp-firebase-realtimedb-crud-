@@ -32,9 +32,13 @@
             ],
             "styles": [
               "src/styles.sass",
-              "node_modules/bootstrap/scss/bootstrap.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "./node_modules/quill/dist/quill.snow.css",
+              "./node_modules/quill/dist/quill.core.css"
             ],
-            "scripts": [],
+            "scripts": [              
+              "./node_modules/quill/dist/quill.core.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

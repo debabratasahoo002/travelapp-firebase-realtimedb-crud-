@@ -1,3 +1,17 @@
-<h1>This is {{id}} component</h1>
+<div class="container">
+    <div class="row">
+        <div class="placeheader col">
+            <h3 class="place-title">This is {{temp[2]}} component</h3>
+            <img [src]="temp[1]" style="height: 400px; width: 600px;">
+        </div>
+        <div #desc class="col" id="desc"></div>
+    </div>
+    <div #editorContent id="editorContent" ></div>
+    
 
-<button (click)="showTemp()">show temp</button>
+    <form (ngSubmit)="onSubmit()" [formGroup]="editorForm" class="text-editor">
+        <quill-editor formControlName="editor"></quill-editor>
+        <button type="submit" class="btn btn-primary my-2">submit</button>
+    </form>
+</div>
+<button (click)="onClick()">click to load..</button>

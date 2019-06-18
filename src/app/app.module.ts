@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap';
+import { QuillModule } from 'ngx-quill';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,9 +33,11 @@ import { PlaceDetailComponent } from './components/place-detail/place-detail.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     ModalModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule    
+    AngularFireDatabaseModule,
+    QuillModule
   ],
   providers: [],
   bootstrap: [AppComponent]

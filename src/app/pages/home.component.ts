@@ -4,8 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-home',
   template: `
     <div class="home">
-      <app-header>header component..</app-header>
-      <div class="container">
+      <div class="container1">
         <app-cards>cards component..</app-cards>
       </div>
     </div>

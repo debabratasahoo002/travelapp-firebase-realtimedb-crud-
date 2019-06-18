@@ -13,9 +13,11 @@ export class UpdatePlaceComponent implements OnInit {
   items = this.placeService.items;
   key = this.placeService.key;
   isModalClose=false;
-  constructor(private placeService: PlaceService, private router:Router) { }
-
   model= this.placeService.model;
+  constructor(private placeService: PlaceService, private router:Router) { }
+  ngOnInit() {
+    this.model.imageUrl = this.model.imageUrl.slice(23, -4);
+  }
 
   onSubmit(){
     this.model.imageUrl="../../../assets/images/"+this.model.imageUrl+".jpg";
@@ -23,7 +25,6 @@ export class UpdatePlaceComponent implements OnInit {
     this.modalCloseEvent.emit(this.isModalClose);
   }
   
-  ngOnInit() {
-  }
+  
 
 }

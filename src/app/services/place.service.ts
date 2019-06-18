@@ -27,6 +27,7 @@ export class PlaceService {
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )
     );
+    console.log(this.items);
   }
 
   addPlaces(model:Place){

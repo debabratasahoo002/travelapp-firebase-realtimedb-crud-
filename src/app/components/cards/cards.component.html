@@ -1,5 +1,5 @@
 
-<div class="card float-left border-warning" *ngFor="let item of items | async" style="width: 21rem;height: 22rem;">
+<div class="card float-left border-warning" *ngFor="let item of items | async" style="width: 275px;height: 300px">
   <img [src]="item.imageUrl" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title"><a [routerLink]="['/place', item.key]">{{item.name}}</a></h5>
